@@ -61,3 +61,4 @@ async def age_id_state(message: types.Message, state: FSMContext):
         text = "Botda muammo mavjud, biz bilan bog'laning"
     await message.answer(text=text, reply_markup=user_main_menu)
     await state.finish()
+

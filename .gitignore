@@ -130,6 +130,7 @@ dmypy.json
 .idea/*
 .env
 .env.dist
+.data
 
 #  git push -u origin mastr
 #   git remote add origin https://github.com/AkmalbekTorabekov/Akmal.git
