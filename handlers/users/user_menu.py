@@ -55,7 +55,7 @@ async def plus_product_handler(call: CallbackQuery, state: FSMContext):
     quantity = item.get('quantity') if item.get('quantity') else 0
     if quantity == 1000:
         text = "Bitta zakazda bitta mahsulotdan 10 tadan ko'p olish" \
-               " qatiyan man etiladi. Hurmat bilan BACK-425 guruhi"
+               " qatiyan man etiladi. "
         await call.answer(text=text, show_alert=True)
     else:
         quantity += 1
@@ -95,7 +95,7 @@ async def minus_product_handler(call: CallbackQuery, state: FSMContext):
         await state.update_data({
             "basket": basket
         })
-        text = "Mahsulot bittaga kamaydi xo'jayin"
+        text = "Mahsulot bittaga kamaydi "
         await call.answer(text=text)
         await call.message.edit_reply_markup(reply_markup=await user_product_buy_def(quantity, quantity * price))
 
@@ -113,7 +113,7 @@ async def show_product_handler(call: CallbackQuery, state: FSMContext):
                     f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
             counter += 1
             total += product['total']
-        text += f"\nJami: {total} so'm"
+        text += f"\nJami: {total}ming so'm"
 
         await call.message.answer(text=text, reply_markup=user_basket_menu)
     else:
@@ -199,7 +199,7 @@ STATUS: Kutilmoqda
         text = "Sizning savatingizda hech narsa mavjud emas. ❗️"
         await call.answer(text=text, show_alert=True)
 
-    await call.message.answer_location(latitude=41.350766, longitude=69.094486, reply_markup=user_main_menu)
+    await call.message.answer_location(latitude=41.361236, longitude=69.170614, reply_markup=user_main_menu)
     await state.finish()
 
 

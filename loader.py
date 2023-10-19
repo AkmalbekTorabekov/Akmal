@@ -8,4 +8,4 @@ bot = Bot(token=config.BOT_TOKEN, parse_mode="HTML")
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
-# db_manager = DatabaseManager("")
+db_manager = DatabaseManager("Snicers.db")

@@ -23,7 +23,7 @@ async def start_handler(message: types.Message, state: FSMContext):
         await message.answer(text=text, reply_markup=user_main_menu)
         await state.finish()
     else:
-        text = "Iltimos to'liq ism familyangizni kiriting.\nMasalan: Rixsiboyev Muhammad Yunus"
+        text = "Iltimos to'liq ism familyangizni kiriting.\nMasalan:  Torabekov Akamlbek "
         await message.answer(text=text)
         await Register.full_name.set()
 
