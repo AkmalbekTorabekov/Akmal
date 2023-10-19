@@ -11,7 +11,7 @@ from states.change_product_state import UpdateProduct
 
 @dp.message_handler(text="⬅️ Orqaga", chat_id=ADMINS, state="*")
 async def stickers_menu(message: types.Message, state: FSMContext):
-    text = "Bosh menyuga xush kelibsiz"
+    text = "Bosh menyuga xush kelibsiz "
     await message.answer(text=text, reply_markup=admin_main_menu)
     await state.finish()
 
@@ -21,7 +21,7 @@ async def stickers_menu(message: types.Message, state: FSMContext):
 async def admin_change_photo_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     await state.update_data(product_id=product_id)
-    text = "Yangi rasmni kiriting."
+    text = "Yangi rasmni kiriting.📸"
     await call.message.answer(text=text)
     await UpdateProduct.photo.set()
 
@@ -33,7 +33,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     photo = message.photo[-1].file_id
 
     if db_manager.update_admin_sticker(product_id, "photo", photo):
-        text = "Rasm yangilandi."
+        text = "Rasm yangilandi.📸"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -45,7 +45,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
 async def admin_change_photo_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     await state.update_data(product_id=product_id)
-    text = "Yangi nomni kiriting."
+    text = "Yangi nomni kiriting.😊"
     await call.message.answer(text=text)
     await UpdateProduct.product_name.set()
 
@@ -57,7 +57,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     product_name = message.text
 
     if db_manager.update_admin_sticker(product_id, "product_name", product_name):
-        text = "nom yangilandi."
+        text = "Nom yangilandi.😊😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -69,7 +69,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
 async def admin_change_photo_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     await state.update_data(product_id=product_id)
-    text = "Yangi narxini kiriting."
+    text = "Yangi narxini kiriting.😊"
     await call.message.answer(text=text)
     await UpdateProduct.price.set()
 
@@ -93,7 +93,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
 async def admin_change_photo_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     await state.update_data(product_id=product_id)
-    text = "Yangi ma'lumotni kiriting."
+    text = "Yangi ma'lumotni kiriting.😊"
     await call.message.answer(text=text)
     await UpdateProduct.description.set()
 
@@ -105,7 +105,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     description = message.text
 
     if db_manager.update_admin_sticker(product_id, "description", description):
-        text = "ma'lumot yangilandi."
+        text = "Ma'lumot yangilandi.😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -117,7 +117,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
 async def admin_change_photo_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     await state.update_data(product_id=product_id)
-    text = "Yangi ma'lumotni kiriting."
+    text = "Yangi ma'lumotni kiriting.😊"
     await call.message.answer(text=text)
     await UpdateProduct.quantity.set()
 
@@ -129,7 +129,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     quantity = message.text
 
     if db_manager.update_admin_sticker(product_id, "quantity", quantity):
-        text = "ma'lumot yangilandi."
+        text = "Ma'lumot yangilandi.😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)

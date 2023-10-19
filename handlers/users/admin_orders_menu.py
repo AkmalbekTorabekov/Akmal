@@ -10,7 +10,7 @@ from loader import db_manager, dp
 async def user_order_waiting_handler(message: types.Message):
     orders = db_manager.get_all_orders_by_status_admin("Kutilmoqda")
     if len(orders) == 0:
-        text = "Hozirda buyurtmalar mavjud emas."
+        text = "Hozirda buyurtmalar mavjud emas.😊"
         await message.answer(text=text)
     else:
         for order in orders:
@@ -42,7 +42,7 @@ Jami: {total_price} so'm
 async def user_order_waiting_handler(message: types.Message):
     orders = db_manager.get_all_orders_by_status_admin("Qabul qilingan")
     if len(orders) == 0:
-        text = "Hozirda buyurtmalar mavjud emas."
+        text = "Hozirda buyurtmalar mavjud emas.😊"
         await message.answer(text=text)
     else:
         for order in orders:
@@ -75,7 +75,7 @@ async def user_order_waiting_handler(message: types.Message):
     orders = db_manager.get_all_orders_by_status_admin("Bekot qilingan")
 
     if len(orders) == 0:
-        text = "Hozirda buyurtmalar mavjud emas."
+        text = "Hozirda buyurtmalar mavjud emas. 😊"
         await message.answer(text=text)
     else:
         for order in orders:

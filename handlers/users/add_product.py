@@ -25,7 +25,7 @@ async def start_handler(message: types.Message, state: FSMContext):
 
 @dp.message_handler(text="➕ Mahsulot qo'shish", chat_id=ADMINS, state="all-product-state")
 async def start_handler(message: types.Message):
-    text = "Mahsulot nomini kiriting."
+    text = "Mahsulot nomini kiriting. 😊"
     await message.answer(text=text, reply_markup=admin_main_menu_back)
     await AddProduct.product_name.set()
 
@@ -35,7 +35,7 @@ async def get_sticker_handler(message: types.Message, state: FSMContext):
     await state.update_data({
         "product_name": message.text
     })
-    text = "Mahsulot narxini kiriting."
+    text = "Mahsulot narxini kiriting. 💵"
     await message.answer(text=text)
     await AddProduct.price.set()
 
@@ -45,7 +45,7 @@ async def get_price_handler(message: types.Message, state: FSMContext):
     await state.update_data({
         "price": message.text
     })
-    text = "Mahsulot haqida ma'lumot kiriting."
+    text = "Mahsulot haqida ma'lumot kiriting. 😊"
     await message.answer(text=text)
     await AddProduct.description.set()
 
@@ -55,7 +55,7 @@ async def get_description_handler(message: types.Message, state: FSMContext):
     await state.update_data({
         "description": message.text
     })
-    text = "Mahsulot sonini kiriting."
+    text = "Mahsulot sonini kiriting. 😊"
     await message.answer(text=text)
     await AddProduct.quantity.set()
 
