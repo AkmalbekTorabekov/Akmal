@@ -11,7 +11,7 @@ from states.change_product_state import UpdateProduct
 
 @dp.message_handler(text="⬅️ Orqaga", chat_id=ADMINS, state="*")
 async def stickers_menu(message: types.Message, state: FSMContext):
-    text = "Bosh menyuga xush kelibsiz "
+    text = "Bosh menyuga xush kelibsiz😊"
     await message.answer(text=text, reply_markup=admin_main_menu)
     await state.finish()
 

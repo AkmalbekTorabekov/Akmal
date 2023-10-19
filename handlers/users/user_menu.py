@@ -15,7 +15,7 @@ from utils.random_number import get_random_id
 @dp.message_handler(text="🛍 Mahsulotlar")
 async def start_handler(message: types.Message, state: FSMContext):
     await state.set_state('user-product-state')
-    text = "Mahsulotlar menyusiga xush kelibsiz."
+    text = "Mahsulotlar menyusiga xush kelibsiz.😊"
     await message.answer(text=text, reply_markup=await all_product_menu_def())
 
 
@@ -82,7 +82,7 @@ async def minus_product_handler(call: CallbackQuery, state: FSMContext):
     item = basket.get(product) if basket.get(product) else dict()
     quantity = item.get('quantity') if item.get('quantity') else 0
     if quantity == 1000:
-        text = "0 dan kam bo'lishi mumkin emas"
+        text = "0 dan kam bo'lishi mumkin emas 😊"
         await call.answer(text=text, show_alert=True)
     else:
         quantity -= 1
@@ -95,7 +95,7 @@ async def minus_product_handler(call: CallbackQuery, state: FSMContext):
         await state.update_data({
             "basket": basket
         })
-        text = "Mahsulot bittaga kamaydi "
+        text = "Mahsulot bittaga kamaydi ➖ "
         await call.answer(text=text)
         await call.message.edit_reply_markup(reply_markup=await user_product_buy_def(quantity, quantity * price))
 
@@ -205,7 +205,7 @@ STATUS: Kutilmoqda
 
 @dp.callback_query_handler(text="delivery_basket", state="user-product-state")
 async def order_delivery_basket_handler(call: CallbackQuery, state: FSMContext):
-    text = "Iltimos, manzilni jo'nating."
+    text = "Iltimos, manzilni jo'nating.😊"
     await call.message.answer(text=text, reply_markup=location_share)
 
 

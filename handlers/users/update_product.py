@@ -25,7 +25,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     photo = message.photo[-1].file_id
 
     if db_manager.update_admin_sticker(product_id, "photo", photo):
-        text = "Rasm yangilandi."
+        text = "Rasm yangilandi. 😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -49,7 +49,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     name = message.text
 
     if db_manager.update_admin_sticker(product_id, "name", name):
-        text = "nom yangilandi."
+        text = "Nom yangilandi.😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)

@@ -44,7 +44,7 @@ async def phone_number_state(message: types.Message, state: FSMContext):
         "phone_number": message.contact.phone_number,
         "user_id": message.chat.id
     })
-    text = "Iltimos yoshingizni kiriting.\nMasalan: 33"
+    text = "Iltimos yoshingizni kiriting.\nMasalan: 33 😊"
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
     await Register.age.set()
 
