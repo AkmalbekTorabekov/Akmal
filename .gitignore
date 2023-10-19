@@ -128,9 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea/*
-.env
-.env.dist
-.data
+.env/*
+.data/*
 
 #  git push -u origin mastr
 #   git remote add origin https://github.com/AkmalbekTorabekov/Akmal.git
