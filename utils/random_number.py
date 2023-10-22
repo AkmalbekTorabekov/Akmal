@@ -5,7 +5,7 @@ from loader import db_manager
 
 def get_random_id():
     try:
-        random_num = random.randint(10000, 99999)
+        random_num = random.randint(100000, 999999)
         order = db_manager.get_order_by_id(random_num)
         if order:
             if order[3] == "DELIVERED" or order[3] == "CANCELED":
@@ -15,4 +15,5 @@ def get_random_id():
         return random_num
     except Exception as exc:
         print(exc)
-        return 00000
+        return 000000
+    

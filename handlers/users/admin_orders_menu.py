@@ -56,7 +56,6 @@ async def user_order_waiting_handler(message: types.Message):
                 products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} so'm\n"
                 counter += 1
             text = f"""
-
 🆔 {order[2]}
 
 ☎️ {user[3]}

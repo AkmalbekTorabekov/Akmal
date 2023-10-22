@@ -12,7 +12,7 @@ from states.RegisterState import Register
 
 @dp.message_handler(commands="start", chat_id=ADMINS)
 async def admin_start_handler(message: types.Message):
-    text = "Botga xush kelibsiz ADMIN. 😊"
+    text = "Botga xush kelibsiz ADMIN. "
     await message.answer(text=text, reply_markup=admin_main_menu)
 
 
@@ -63,7 +63,7 @@ async def age_id_state(message: types.Message, state: FSMContext):
     await state.finish()
 
 
-@dp.message_handler(commands="help", chat_id=ADMINS)
-async def admin_start_handler(message: types.Message):
-    text = "Yordam\nBoglanish uchun:\nTel: +998 88 788 06 60\n😊"
-    await message.answer(text=text, reply_markup=admin_main_menu)
+# @dp.message_handler(commands="help")
+# async def admin_start_handler(message: types.Message):
+#     text = "Yordam\nBoglanish uchun:\nTel: +998 88 788 06 60\n😊"
+#     await message.answer(text=text, reply_markup=admin_main_menu)

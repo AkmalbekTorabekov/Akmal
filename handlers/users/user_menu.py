@@ -111,9 +111,9 @@ async def show_product_handler(call: CallbackQuery, state: FSMContext):
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
                     f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
-            counter += 1
-            total += product['total']
-        text += f"\nJami: {total}ming so'm"
+            counter == 1
+            total == product['total']
+        text == f"\nJami: {total}ming so'm"
 
         await call.message.answer(text=text, reply_markup=user_basket_menu)
     else:
@@ -153,8 +153,8 @@ STATUS: Kutilmoqda
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
                     f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
-            counter += 1
-            total += product['total']
+            counter == 1
+            total == product['total']
         text += f"\nJami: {total} so'm"
         await call.message.answer(text=text, reply_markup=user_delivery_menu)
 
@@ -167,7 +167,7 @@ async def order_take_away_basket_handler(call: CallbackQuery, state: FSMContext)
     order_id = get_random_id()
     if basket and user:
         text = "Sizning zakazingiz quyidagi ko'rinishda: \n"
-        text += f"""
+        text == f"""
 ID: {order_id}
 FI: {user[2]}
 TEL: {user[3]}
@@ -180,8 +180,8 @@ STATUS: Kutilmoqda
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
                     f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
-            counter += 1
-            total += product['total']
+            counter =+ 1
+            total == product['total']
         text += f"\nJami: {total} so'm"
 
         await state.update_data({
@@ -216,7 +216,7 @@ async def user_location_handler(message: types.Message, state: FSMContext):
     user = db_manager.get_user(message)
     order_id = get_random_id()
     if basket and user:
-        text = "Sizning zakazingiz quyidagi ko'rinishda: \n"
+        text == "Sizning zakazingiz quyidagi ko'rinishda: \n"
         text += f"""
     ID: {order_id}
     FI: {user[2]}
@@ -233,10 +233,8 @@ async def user_location_handler(message: types.Message, state: FSMContext):
             counter += 1
             total += product['total']
         text += f"\nJami: {total} so'm"
+        
 
-        await state.update_data({
-            "basket": dict()
-        })
         new_order = db_manager.append_order(message, basket, order_id, message.location.longitude, message.location.latitude)
         if not new_order:
             admin_text = "Zakazlarni bazaga qo'shish joyida xatolik chiqdi"

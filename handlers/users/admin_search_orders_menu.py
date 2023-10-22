@@ -3,17 +3,18 @@ from aiogram.dispatcher import FSMContext
 
 from data.config import ADMINS
 from keyboards.inline.admin_buy_message import admin_order_search_def
+from keyboards.default.admin_main_menu import admin_main_menu_back
 from loader import db_manager, dp
 
 
 @dp.message_handler(text="🔎 Buyurtma qidirish", chat_id=ADMINS)
 async def user_order_search_handler(message: types.Message, state: FSMContext):
     text = "Iltimos buyurtma ID raqamini kiriting."
-    await message.answer(text=text)
+    await message.answer(text=text, reply_markup=admin_main_menu_back)
     await state.set_state('admin-get-order-id')
 
 
-@dp.message_handler(state="admin-get-order-id", chat_id=ADMINS)
+@dp.message_handler(state="admin-get-order-id", chat_id=ADMINS,)
 async def user_order_get_id_handler(message: types.Message, state: FSMContext):
     order = db_manager.get_order_by_id(int(message.text))
 

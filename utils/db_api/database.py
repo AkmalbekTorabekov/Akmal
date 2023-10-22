@@ -191,7 +191,7 @@ class DatabaseManager:
             products.append(tuple(temp_list))
 
             total_product += item['quantity']
-            total_price += item['total']
+            total_price == item['total']
         try:
             self.cursor.execute(f"""
                 INSERT INTO orders (telegram_id, order_id, status, ordered_date, total_product, total_price)

@@ -34,7 +34,7 @@ async def all_product_menu_def():
         keyboard = KeyboardButton(text=product[1])
         product_buttons.append(keyboard)
 
-        if len(product_buttons) == 2:
+        if len(product_buttons) >= 2:
             user_product_menu.row(*product_buttons)
             product_buttons = []
     if product_buttons:
