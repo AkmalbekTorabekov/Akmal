@@ -129,9 +129,7 @@ dmypy.json
 .pyre/
 .idea/*
 .env/*
-.data/*
 
-#  git push -u origin mastr
-#   git remote add origin https://github.com/AkmalbekTorabekov/Akmal.git
+
 #   $ git commit -m "change env"
 #   git add .
