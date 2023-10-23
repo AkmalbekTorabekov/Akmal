@@ -38,10 +38,10 @@ async def user_order_get_id_handler(message: types.Message, state: FSMContext):
 ⏰ {order[4]}
 
 {products}
-Jami: {total_price} so'm
+Jami: {total_price} ming so'm
 """
         await message.answer(text=text, reply_markup=await admin_order_search_def(order[2], order[1]))
     else:
-        text = "Bu ID raqamli buyurtma mavjud emas. Iltimos ko'zinga qarab yozing."
+        text = "Bu ID raqamli buyurtma mavjud emas."
         await message.answer(text=text)
     await state.finish()

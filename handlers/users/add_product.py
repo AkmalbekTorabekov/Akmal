@@ -11,7 +11,7 @@ from states.AddProductState import AddProduct
 
 @dp.message_handler(text="⬅️ Orqaga", chat_id=ADMINS, state="*")
 async def stickers_menu(message: types.Message, state: FSMContext):
-    text = "Bosh menyuga xush kelibsiz"
+    text = "Bosh menyuga xush kelibsiz 😊"
     await message.answer(text=text, reply_markup=admin_main_menu)
     await state.finish()
 
@@ -19,7 +19,7 @@ async def stickers_menu(message: types.Message, state: FSMContext):
 @dp.message_handler(text="🛍 Mahsulotlar", chat_id=ADMINS)
 async def start_handler(message: types.Message, state: FSMContext):
     await state.set_state('all-product-state')
-    text = "Mahsulotlar menyusiga xush kelibsiz."
+    text = "Mahsulotlar menyusiga xush kelibsiz. 😊"
     await message.answer(text=text, reply_markup=await add_product_menu_def())
 
 
@@ -95,6 +95,6 @@ async def get_one_sticker_handler(message: types.Message):
         description = product[3]
         photo = product[4]
         quantity = product[5]
-        caption = f"{product_name} | {price} so'm | {quantity} ta bor\n\n{description}"
+        caption = f"{product_name} | {price} ming so'm | {quantity} ta bor\n\n{description}"
         await message.answer_photo(photo=photo, caption=caption,
                                    reply_markup=await admin_product_change_def(product_id))

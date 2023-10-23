@@ -21,7 +21,7 @@ async def user_order_waiting_handler(message: types.Message):
             total_price = 0
             for item in order_items:
                 total_price += float(item[4]) * float(item[3])
-                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} so'm\n"
+                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} ming so'm\n"
                 counter += 1
             text = f"""
 
@@ -33,7 +33,7 @@ async def user_order_waiting_handler(message: types.Message):
 ⏰ {order[4]}
 
 {products}
-Jami: {total_price} so'm
+Jami: {total_price} ming so'm
     """
             await message.answer(text=text, reply_markup=await admin_order_decision_def(order[2], order[1]))
 
@@ -53,7 +53,7 @@ async def user_order_waiting_handler(message: types.Message):
             total_price = 0
             for item in order_items:
                 total_price += float(item[4]) * float(item[3])
-                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} so'm\n"
+                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} ming so'm\n"
                 counter += 1
             text = f"""
 🆔 {order[2]}
@@ -64,7 +64,7 @@ async def user_order_waiting_handler(message: types.Message):
 ⏰ {order[4]}
 
 {products}
-Jami: {total_price} so'm
+Jami: {total_price} ming so'm
     """
             await message.answer(text=text, reply_markup=await admin_order_accepted_def(order[2], order[1]))
 
@@ -85,7 +85,7 @@ async def user_order_waiting_handler(message: types.Message):
             total_price = 0
             for item in order_items:
                 total_price += float(item[4]) * float(item[3])
-                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} so'm\n"
+                products += f"{counter})\t {item[2]}\t| {item[4]} ta\t| {item[3]} ming so'm\n"
                 counter += 1
             text = f"""
 
@@ -97,6 +97,6 @@ async def user_order_waiting_handler(message: types.Message):
 ⏰ {order[4]}
 
 {products}
-Jami: {total_price} so'm
+Jami: {total_price} ming so'm
     """
             await message.answer(text=text, reply_markup=await admin_order_canceled_def(order[2], order[1]))

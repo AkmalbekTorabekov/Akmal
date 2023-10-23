@@ -40,7 +40,7 @@ async def get_one_sticker_handler(message: types.Message, state: FSMContext):
             "price": price
         })
 
-        caption = f"{name} | {price} so'm | {quantity2} ta bor\n\n{description}"
+        caption = f"{name} | {price} ming so'm | {quantity2} ta bor\n\n{description}"
         await message.answer_photo(photo=photo, caption=caption,
                                    reply_markup=await user_product_buy_def(quantity, total))
 
@@ -110,10 +110,10 @@ async def show_product_handler(call: CallbackQuery, state: FSMContext):
         total = 0
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
-                    f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
+                    f"\t| {product['price']}ming so'm\t| {product['total']} so'm\n</b></i>"
             counter == 1
             total == product['total']
-        text == f"\nJami: {total}ming so'm"
+        text += f"\nJami: {total}ming so'm"
 
         await call.message.answer(text=text, reply_markup=user_basket_menu)
     else:
@@ -152,7 +152,7 @@ STATUS: Kutilmoqda
         total = 0
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
-                    f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
+                    f"\t| {product['price']} ming so'm\t| {product['total']} ming so'm\n</b></i>"
             counter == 1
             total == product['total']
         text += f"\nJami: {total} so'm"
@@ -179,10 +179,10 @@ STATUS: Kutilmoqda
         total = 0
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
-                    f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
+                    f"\t| {product['price']} ming so'm\t| {product['total']} ming so'm\n</b></i>"
             counter =+ 1
-            total == product['total']
-        text += f"\nJami: {total} so'm"
+            total += product['total']
+        text += f"\nJami: {total} ming so'm"
 
         await state.update_data({
             "basket": dict()
@@ -216,7 +216,7 @@ async def user_location_handler(message: types.Message, state: FSMContext):
     user = db_manager.get_user(message)
     order_id = get_random_id()
     if basket and user:
-        text == "Sizning zakazingiz quyidagi ko'rinishda: \n"
+        text += "Sizning zakazingiz quyidagi ko'rinishda: \n"
         text += f"""
     ID: {order_id}
     FI: {user[2]}
@@ -229,10 +229,10 @@ async def user_location_handler(message: types.Message, state: FSMContext):
         total = 0
         for product in basket.values():
             text += f"<i><b>{counter}) {product['name']}\t| {product['quantity']} ta " \
-                    f"\t| {product['price']} so'm\t| {product['total']} so'm\n</b></i>"
+                    f"\t| {product['price']} ming so'm\t| {product['total']} ming so'm\n</b></i>"
             counter += 1
             total += product['total']
-        text += f"\nJami: {total} so'm"
+        text += f"\nJami: {total} ming so'm"
         
 
         new_order = db_manager.append_order(message, basket, order_id, message.location.longitude, message.location.latitude)

@@ -41,18 +41,18 @@ async def update_user_full_name(message: types.Message, state: FSMContext):
     await state.finish()
 
 
-@dp.callback_query_handler(text="change_age")
-async def change_age_handler(call: CallbackQuery):
-    text = "Yangi yoshingizni kiriting."
-    await call.message.answer(text=text, reply_markup=user_main_menu_back)
-    await ProfileUpdate.age.set()
+# @dp.callback_query_handler(text="change_age")
+# async def change_age_handler(call: CallbackQuery):
+#     text = "Yangi yoshingizni kiriting."
+#     await call.message.answer(text=text, reply_markup=user_main_menu_back)
+#     await ProfileUpdate.age.set()
 
 
-@dp.message_handler(state=ProfileUpdate.age)
-async def update_age_handler(message: types.Message, state: FSMContext):
-    if db_manager.update_user_profile(message, "age"):
-        text = "Yoshingiz yangilandi ✅"
-    else:
-        text = "Botda xatolik bor ❌"
-    await message.answer(text=text, reply_markup=user_main_menu)
-    await state.finish()
+# @dp.message_handler(state=ProfileUpdate.age)
+# async def update_age_handler(message: types.Message, state: FSMContext):
+#     if db_manager.update_user_profile(message, "age"):
+#         text = "Yoshingiz yangilandi ✅"
+#     else:
+#         text = "Botda xatolik bor ❌"
+#     await message.answer(text=text, reply_markup=user_main_menu)
+#     await state.finish()

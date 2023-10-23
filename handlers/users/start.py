@@ -23,7 +23,7 @@ async def start_handler(message: types.Message, state: FSMContext):
         await message.answer(text=text, reply_markup=user_main_menu)
         await state.finish()
     else:
-        text = "Iltimos to'liq ism familyangizni kiriting.\nMasalan:  Torabekov Akamlbek "
+        text = "Iltimos to'liq ism familyangizni kiriting.😊"
         await message.answer(text=text)
         await Register.full_name.set()
 
@@ -44,16 +44,6 @@ async def phone_number_state(message: types.Message, state: FSMContext):
         "phone_number": message.contact.phone_number,
         "user_id": message.chat.id
     })
-    text = "Iltimos yoshingizni kiriting.\nMasalan: 33 😊"
-    await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
-    await Register.age.set()
-
-
-@dp.message_handler(state=Register.age)
-async def age_id_state(message: types.Message, state: FSMContext):
-    await state.update_data({
-        "age": message.text
-    })
     data = await state.get_data()
     if db_manager.append_user(data):
         text = "Siz muvaffaqiyatli ro'yxatdan o'tdingiz. ✅"
@@ -62,8 +52,11 @@ async def age_id_state(message: types.Message, state: FSMContext):
     await message.answer(text=text, reply_markup=user_main_menu)
     await state.finish()
 
+@dp.message_handler(commands="help", state="*")
+async def start_handler(message: types.Message, state: FSMContext):
+    if db_manager.get_user(message):
+        text = "Yordam\nBoglanish uchun:\nTel: +998 88 788 06 60\n😊"
+        await message.answer(text=text, reply_markup=user_main_menu)
+        await state.finish()
 
-# @dp.message_handler(commands="help")
-# async def admin_start_handler(message: types.Message):
-#     text = "Yordam\nBoglanish uchun:\nTel: +998 88 788 06 60\n😊"
-#     await message.answer(text=text, reply_markup=admin_main_menu)
+

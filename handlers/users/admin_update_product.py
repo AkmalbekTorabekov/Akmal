@@ -57,7 +57,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     product_name = message.text
 
     if db_manager.update_admin_sticker(product_id, "product_name", product_name):
-        text = "Nom yangilandi.😊😊"
+        text = "Nom yangilandi.😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -81,7 +81,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
     price = message.text
 
     if db_manager.update_admin_sticker(product_id, "price", price):
-        text = "narx yangilandi."
+        text = "Narx yangilandi.😊"
     else:
         text = "Xatolik bor."
     await message.answer(text=text, reply_markup=admin_main_menu)
@@ -141,7 +141,7 @@ async def update_photo_handler(message: types.Message, state: FSMContext):
 async def admin_change_delete_handler(call: types.CallbackQuery, callback_data: dict, state: FSMContext):
     product_id = callback_data.get('product_id')
     if db_manager.delete_product(product_id):
-        text = "ma'lumot ochirildi."
+        text = "Ma'lumot ochirildi."
     else:
         text = "Xatolik bor."
     await call.message.answer(text=text, reply_markup=admin_main_menu)
