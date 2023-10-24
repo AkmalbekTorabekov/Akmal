@@ -10,3 +10,5 @@ from . import user_menu
 from . import user_status_menu
 from . import user_profile
 from . import phone
+from .import help
+from . import lacation

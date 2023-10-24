@@ -30,7 +30,7 @@ async def admin_order_accept_handler(call: CallbackQuery, callback_data: dict):
     if db_manager.update_order_status(order_id, "Bekor qilingan"):
         text = f"🆔: {order_id}\nUshbu ID raqamli buyurtma qabul qilinmadi ❌"
     else:
-        text = "Buyurtma qabul qilish jarayonida xatolik yuz berdi xo'jayin ❗️"
+        text = "Buyurtma qabul qilimaslik jarayonida xatolik yuz berdi xo'jayin ❗️"
 
     await bot.send_message(chat_id=user_id, text=text, reply_markup=user_main_menu)
     await call.answer(text=text, show_alert=True)

@@ -58,5 +58,3 @@ async def start_handler(message: types.Message, state: FSMContext):
         text = "Yordam\nBoglanish uchun:\nTel: +998 88 788 06 60\n😊"
         await message.answer(text=text, reply_markup=user_main_menu)
         await state.finish()
-
-

@@ -65,7 +65,7 @@ async def get_quantity_handler(message: types.Message, state: FSMContext):
     await state.update_data({
         "quantity": message.text
     })
-    text = "Mahsulot rasmini kiriting."
+    text = "Mahsulot rasmini kiriting.📸"
     await message.answer(text=text)
     await AddProduct.photo.set()
 
