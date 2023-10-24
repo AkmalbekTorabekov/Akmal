@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 
 from data.config import ADMINS
 from keyboards.inline.admin_buy_message import admin_order_search_def
-from keyboards.default.admin_main_menu import admin_main_menu_back
+from keyboards.default.admin_main_menu import admin_main_menu_back,admin_main_menu
 from loader import db_manager, dp
 
 
@@ -43,5 +43,5 @@ Jami: {total_price} ming so'm
         await message.answer(text=text, reply_markup=await admin_order_search_def(order[2], order[1]))
     else:
         text = "Bu ID raqamli buyurtma mavjud emas."
-        await message.answer(text=text)
+        await message.answer(text=text,reply_markup=admin_main_menu)
     await state.finish()
